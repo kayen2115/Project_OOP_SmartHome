@@ -1,5 +1,5 @@
 # Java Project
-To pass the course :3
+Two idiots vs Java
 
 To Do:
 1. Docs
