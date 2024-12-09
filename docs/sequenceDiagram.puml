@@ -1,11 +1,18 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+skinparam sequenceMessageAlignment center
+skinparam sequenceArrowColor #blue
+skinparam participantBackgroundColor #EEE
+skinparam participantBorderColor #000
 
-autonumber
+actor User
+participant "SmartHomeSystem" as SHS
+participant "DeviceDatabase" as DB
+participant "Light Device" as Light
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+User -> SHS: Control Device ("Turn on Light")
+SHS -> DB: Find Device ("Light")
+DB --> SHS: Return Device Info
+SHS -> Light: Send Command ("Turn On")
+Light --> SHS: Confirm Status ("Light On")
+SHS --> User: Success Response ("Light is On")
 @enduml
